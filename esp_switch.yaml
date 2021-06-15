@@ -1,0 +1,43 @@
+esphome:
+  name: espnow-switch
+  platform: ESP8266
+  board: nodemcuv2
+  arduino_version: LATEST
+  includes:
+    - esp_switch.h
+
+wifi:
+  ssid: "YOUR_WIFI"
+  password: "YOUR_PASSWORD"
+
+# Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "NodeMCU Fallback Hotspot"
+    password: "CPELMiEbGFha"
+
+captive_portal:
+
+# Enable logging
+logger:
+  level: NONE
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+  password: "flippityflip"
+
+binary_sensor:
+  - platform: custom
+    lambda: |-
+      auto esp_switch = new ESPSwitch("11:11:11:11:11:11");
+      App.register_component(esp_switch);
+      return {esp_switch};
+    binary_sensors:
+      name: "ESPSwitch0"
+  - platform: custom
+    lambda: |-
+      auto esp_switch = new ESPSwitch("22:22:22:22:22:22");
+      App.register_component(esp_switch);
+      return {esp_switch};
+    binary_sensors:
+      name: "ESPSwitch1"
