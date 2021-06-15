@@ -74,7 +74,7 @@ every other:
 docker run --rm -v <Path_to_ESPNow-Switch>:/config -it esphome/esphome esp_switch.yaml run --upload-port espnow-switch
 ```
 
-#Links and kudos
+# Links and kudos
 
 https://github.com/esphome/esphome
 
