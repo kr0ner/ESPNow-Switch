@@ -31,7 +31,7 @@ This variant is supposed to change its state on every change of the switch posit
 1. Solutions all over the internet ... use two XOR gates ... no thanks I don't want to have 10 mA idle current.
 2. Use two switches ... ok, this can work but might not be applicable 
 3. Make use of the following circuit, where the reset pin is connected to the first input of the switch
-ToDo: add link to [EveryCircuit](https://everycircuit.com/app) for interactive tuning
+[Interactive circuit](https://everycircuit.com/circuit/6615683099787264)
 
 ![image info](./circuit.jpg)
 
