@@ -43,7 +43,7 @@ void setup() {
     WiFiReset();
     wifi_set_channel(wifi_channel);
     WiFi.mode(WIFI_STA);
-    WiFi.setOutputPower(20.5);
+    WiFi.setOutputPower(20.5f);
 
     if (esp_now_init() != 0) {
         return;
@@ -76,8 +76,11 @@ void setup() {
     EEPROM.commit();
     EEPROM.end();
 #else
-    // ToDo: add instructions where to connect pin 3 to
+    // Connect pin 3 to the 100K resistor shown in the circuit. The resistor is needed, because the capacitor would be
+    // charged during boot
     pinMode(3U, INPUT);
+    //  The delay is needed to ensure that the capacitor is discharged. The delay depends on the value of the capacitors
+    delay(std::chrono::milliseconds(250U).count());
     switch_status.status = !(digitalRead(3U) == HIGH);
 #endif
 }
